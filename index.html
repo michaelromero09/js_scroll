@@ -26,18 +26,12 @@
 	<script>
 		function replaceSpace(array) {
 			var newArr = [];
-			var newStr = '';
 			for (var i = 0; i < array.length; i++) {
-				var message = array[i];
-				for (var j = 0; j < message.length; j++) {
-					if (message.charAt(j) === ' ') {
-						message.charAt(j) = '&nbsp';
-					}
-					newStr = newStr + message[j]
-				}
-				newArr.push(newStr);
+				var message = array[i].split(' ').join('$nbsp');
+				newArr.push(message);
 			}
 			console.log(newArr);
+			return(newArr);
 		}
 
 		var words = ["fun", "exciting", "about not giving up", "being helpful", "being open", "what I learned at CodingDojo!"],
