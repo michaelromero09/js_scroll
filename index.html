@@ -24,17 +24,34 @@
 	Coding is <div id="magic"></div>
 
 	<script>
+		function replaceSpace(array) {
+			var newArr = [];
+			var newStr = '';
+			for (var i = 0; i < array.length; i++) {
+				var message = array[i];
+				for (var j = 0; j < message.length; j++) {
+					if (message.charAt(j) === ' ') {
+						message.charAt(j) = '&nbsp';
+					}
+					newStr = newStr + message[j]
+				}
+				newArr.push(newStr);
+			}
+			console.log(newArr);
+		}
 
 		var words = ["fun", "exciting", "about not giving up", "being helpful", "being open", "what I learned at CodingDojo!"],
 			el = document.getElementById('magic'),
 			word_counter = 0,
 			character_counter = 0;
 
+replaceSpace(words);
+
 		function updateText()
 		{
 			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
 
-			if(character_counter == words[word_counter].length)
+			if(character_counter == words[word_counter].length + 1)
 			{
 				word_counter++; 	//choose a different word
 				character_counter = 0;	//start over with the first character of the word
